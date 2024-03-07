@@ -21,6 +21,22 @@ RSpec.describe Calculator do
             end
         end
     end
+
+    context "given double digits" do
+        context "'2,36'" do
+            it "returns 38" do
+                expect(Calculator.new.add("2,36")).to eq(38)
+            end
+        end
+    end 
+
+    context "given multiple digits" do
+        context "'2,456,6,8,9,0,45,66'" do
+            it "returns 592" do
+                expect(Calculator.new.add("2,456,6,8,9,0,45,66")).to eq(592)
+            end
+        end
+    end
   end
   
 end
