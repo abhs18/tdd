@@ -6,8 +6,11 @@ class Calculator
             return 0
         else
             if str[0,2] === "//"
-                delimiter = str[2]
-                delimiter_str = str[4..-1] #Sliced the string from 4th charatcer to the last character
+                start_index = str.index('[')
+                end_index = str.index(']')
+                is_multilength = start_index && end_index ? true : false
+                delimiter = is_multilength ? str[start_index + 1...end_index] : str[2]
+                delimiter_str = is_multilength ? str[end_index + 2..-1] : str[4..-1] #Sliced the string from 4th charatcer to the last character
                 get_sum(delimiter_str,delimiter)
             else
                 str = str.gsub("\n",",")

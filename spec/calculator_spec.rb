@@ -82,9 +82,26 @@ RSpec.describe Calculator do
     end
 
     context "given numbers greater than 1000" do
-        it "returns 2" do
+        context "2,1000,2000" do
+          it "returns 2" do
             expect(Calculator.new.add("2,1000,2000")).to eq(2)
+          end
+    end
+    end
+
+    context "given delimiters of length greater than 1" do
+        context "“//[***]\n1***2***3”" do
+          it "returns 6" do
+            expect(Calculator.new.add("//[***]\n1***2***3")).to eq(6)
+          end
         end
+
+        context "“//[^^^^]\n1^^^^2^^^^3”" do
+            it "returns 600" do
+              expect(Calculator.new.add("//[^^^^]\n100^^^^200^^^^300")).to eq(600)
+            end
+        end
+
     end
   end
 end
