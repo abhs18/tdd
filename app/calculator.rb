@@ -1,3 +1,5 @@
+require_relative "error"
+
 class Calculator
     def add(str)
         if str.empty?
@@ -16,8 +18,24 @@ class Calculator
     end
 
     def get_sum(str, delimiter = ",") #Considering default delimieter as ","
-        num_arr = str.split("#{delimiter}").map {|num| num.to_i}
-        sum = num_arr.reduce(0) {|sum,number| sum + number}
-        return sum 
+         num_arr = str.split("#{delimiter}").map {|num| num.to_i}
+         status , negative_numbers_array =  validate_string_array(num_arr)
+
+         if status
+         return raise NegativeNumberNotAllowedError ,"negative numbers not allowed #{negative_numbers_array.sort.reverse.join(",")}"
+         else
+            sum = num_arr.reduce(0) {|sum,number| sum + number}
+            return sum 
+         end
+                 
+    end
+
+    def validate_string_array(arr)
+        status = false
+        negative_numbers_array = arr.select {|num| num < 0}
+        if negative_numbers_array.size > 0
+            status = true
+        end
+        return status,negative_numbers_array
     end
 end

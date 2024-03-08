@@ -1,4 +1,5 @@
 require_relative "../app/calculator.rb"
+require_relative "../app/error.rb"
 
 RSpec.describe Calculator do
 
@@ -57,6 +58,14 @@ RSpec.describe Calculator do
             it "returns 703" do
                 expect(Calculator.new.add("//{\n1{2{300{400")).to eq(703)
             end  
+        end
+    end
+
+    context "given negative numbers" do
+        context "1,2,-2,-3,-5" do
+            it "returns negative number not allowed error" do
+                expect{Calculator.new.add("1,2,-3,-2,-5")}.to raise_error(NegativeNumberNotAllowedError,"negative numbers not allowed -2,-3,-5")
+            end
         end
     end
   end
