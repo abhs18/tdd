@@ -45,6 +45,20 @@ RSpec.describe Calculator do
             end
         end
     end
+
+    context "given different delimiters" do
+        context "'//;\n1;2;300;400'" do
+            it "returns 703" do 
+                expect(Calculator.new.add("//;\n1;2;300;400")).to eq(703)
+            end
+        end
+
+        context "//{\n1{2{300{400" do
+            it "returns 703" do
+                expect(Calculator.new.add("//{\n1{2{300{400")).to eq(703)
+            end  
+        end
+    end
   end
   
 end
