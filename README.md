@@ -46,7 +46,9 @@ ___
 #### How to Run:
 
 Run RSpecs:
+```bash
 rspec ./spec/calculator_spec.rb
+```
 
 Run the run.rb file for checking the output:
 ```bash
