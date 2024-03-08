@@ -1,27 +1,64 @@
-Create a simple String calculator with a method signature similar to this
+## String Calculator
 
-int add(string numbers)
+#### Problem Statement:
+> Create a simple String calculator with a method signature similar to this:
+```ruby
+def add(str)
+```
+**Input:** A string of comma-separated numbers. <br />
+**Output:** An integer, sum of the numbers.
 
-Input: a string of comma separated numbers
-Output: an integer, sum of the numbers
-
-Examples:
+##### Examples:
+```
 Input: "", "1", "1,5"
 Output: 0, 1, 6
-Hints:
+```
+##### Method Signature:
+```
+def add(str)
+```
+___
+#### Technologies Used:
 
-Start with the simplest test case of an empty string and move to one and two numbers
-Remember to solve things as simply as possible so that you force yourself to write tests you did not think about
-Remember to refactor after each passing test
-Allow the add method to handle an any amount of numbers.
+* Ruby programming language
+* RSpec (unit test framework for Ruby)
 
-Allow the add method to handle new lines between numbers (instead of commas).
+___
+#### Implementation Details:
 
-The following input is valid: "1\n2,3" (will return 6)
-The following input is invalid: "1,\n"
-Support different delimiters
+Utilized the add method to perform addition of all the numbers present in the string.
+Handled cases for multi-length and multiple delimiters.
+Leveraged concepts like string interpolation, string slicing, Ruby enumerators, and error handling.
+___
+#### Testing:
 
-To change delimiter, the beginning of the string will contain a separate line that looks like this: "//[delimiter]\n[numbers…]", for example "//;\n1;2" here the delimiter is ";" and this should return 3.
-Calling add with a negative number will throw an exception "negative numbers not allowed <negative_number>".
+Considered all the test cases including those present in the full version of TDD Kafka 1.
+Written a total of 16 unit test cases, covering all edge cases.
+All test cases are successfully satisfied.
 
-If there are multiple negative numbers, show all of them in the exception message, separated by commas
+___
+#### File Explanations:
+
+calculator.rb: Main source code file containing the Calculator class with the add method, the main method that should be called by passing a string to get the output.
+calculator_spec.rb: RSpec file containing all unit test cases.
+
+___
+#### How to Run:
+
+Run RSpecs:
+rspec ./spec/calculator_spec.rb
+
+Run the run.rb file for checking the output:
+```bash
+ruby ./app/run.rb
+```
+(Both commands should be run from the main TDD folder)
+
+GitHub Repository:
+A GitHub repository named TDD has been created, containing all the required files. It includes app and spec folders which have source code and unit testing code, respectively.
+
+Screenshot for the Passed Test Cases : <br />
+![image](https://github.com/abhs18/tdd/assets/56027966/d3bbdd09-f26a-4809-aa08-dad24c4f17d8)
+
+Screenshot after the code run :  <br />
+![image](https://github.com/abhs18/tdd/assets/56027966/4d943fea-ccfd-407e-970b-d03298c7e695)
