@@ -103,5 +103,21 @@ RSpec.describe Calculator do
         end
 
     end
-  end
+
+    context "given multiple delimiters" do 
+        context "//[*][%]\n1*2%3" do
+            it "returns 6" do
+                expect(Calculator.new.add("//[*][%]\n1*2%3")).to eq (6)
+            end
+        end
+    end
+
+    context "givem multiple multilength parameters" do
+        context "//[*^][%&][^^]\n1*^2%&3^^4*^400" do
+            it "returns 10" do
+                expect(Calculator.new.add("//[*^][%&][^^]\n1*^2%&3^^4*^400")).to eq(410)
+            end
+        end
+    end
+  end 
 end
