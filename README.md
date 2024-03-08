@@ -39,7 +39,7 @@ All test cases are successfully satisfied.
 ___
 #### File Explanations:
 
-calculator.rb: Main source code file containing the Calculator class with the add method, the main method that should be called by passing a string to get the output.
+calculator.rb: Main source code file containing the Calculator class with the add method, the main method that should be called by passing a string to get the output.<br />
 calculator_spec.rb: RSpec file containing all unit test cases.
 
 ___
