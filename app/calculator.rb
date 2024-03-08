@@ -18,7 +18,7 @@ class Calculator
     end
 
     def get_sum(str, delimiter = ",") #Considering default delimieter as ","
-         num_arr = str.split("#{delimiter}").map {|num| num.to_i}
+         num_arr = str.split("#{delimiter}").map {|num| num.to_i < 1000 ? num.to_i : 0} #Ignore numbers greater than 1000
          status , negative_numbers_array =  validate_string_array(num_arr)
 
          if status

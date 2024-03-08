@@ -67,7 +67,24 @@ RSpec.describe Calculator do
                 expect{Calculator.new.add("1,2,-3,-2,-5")}.to raise_error(NegativeNumberNotAllowedError,"negative numbers not allowed -2,-3,-5")
             end
         end
+
+        context "1,2,-3\n-4" do
+            it "returns negative number not allowed" do
+                expect{Calculator.new.add("1,2,-3\n-4")}.to raise_error(NegativeNumberNotAllowedError,"negative numbers not allowed -3,-4")
+            end
+        end
+
+        context "'//;\n1;2;-300;-400" do
+            it "returns negative number not allowed" do
+                expect{Calculator.new.add("//;\n1;2;-300;-400")}.to raise_error(NegativeNumberNotAllowedError,"negative numbers not allowed -300,-400")
+            end
+        end
+    end
+
+    context "given numbers greater than 1000" do
+        it "returns 2" do
+            expect(Calculator.new.add("2,1000,2000")).to eq(2)
+        end
     end
   end
-  
 end
